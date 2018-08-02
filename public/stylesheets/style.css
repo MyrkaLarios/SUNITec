@@ -1,8 +1,25 @@
 body {
-  padding: 50px;
+  padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 a {
   color: #00B7FF; }
+
+header.button{
+  background-color: black
+}
+.navbar.navbar-expand-lg.navbar-light{
+  background-color: rgb(255, 187, 0);
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+  font-weight: 300;
+}
+
+.full-container{ /*PARA LA PARTE DE LAS PREGUNTAS*/
+  margin: 20px 50px 20px 50px;
+}
+
+input[type=radio] {
+  height: 1.6em; /*PARA ACOMODAR EL RADIO BUTTON, PARA HACERLO MAS GRANDE: WIDTH Y BORDER*/
+}
 
 /*# sourceMappingURL=style.css.map */
