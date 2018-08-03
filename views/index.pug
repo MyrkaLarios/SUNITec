@@ -10,10 +10,10 @@ block content
       #navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
           li.nav-item.active
-            a.nav-link(href='#') 
+            a.nav-link(href='#')
               span.sr-only (current)
           li.nav-item
-            a.nav-link(href='#') 
+            a.nav-link(href='#')
           li.nav-item.dropdown
             a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
               | Preguntas
@@ -23,48 +23,52 @@ block content
           li.nav-item
 
   .full-container
-    .form-group
-      .preguntas
-        h2 Agregar una pregunta
-        .input-group.mb-4
-        .input-group-prepend
-          span#inputGroup-sizing-default.input-group-text Titulo:
-        input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default')
-        .input-group.mb-4
-        .input-group-prepend
-          span#inputGroup-sizing-default.input-group-text Descripcion:
-        input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default')
+    form(method='post', action='/insert/question')
+      .form-group
+        .preguntas
+          h2.mb-4 Agregar una pregunta
+          .input-group-prepend
+            span#inputGroup-sizing-default.input-group-text Descripcion:
+          input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='descripcion')
+          .input-group-prepend
+            span#inputGroup-sizing-default.input-group-text Valor:
+          input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='valor')
+          .input-group-prepend
+            span#inputGroup-sizing-default.input-group-text Unidad:
+          input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='id_unidad')
+          .input-group-prepend
+            span#inputGroup-sizing-default.input-group-text IdCoordi:
+          input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='id_coordi')
 
-    .form-group
-      h3.mb-3 Respuestas:
-      form
-        .form-row.align-items-center
+      .form-group
+        h3.mb-3 Respuestas:
+        .form-row
           .col-auto
             .form-check.mb-2.mr-2
-              input#exampleRadios1.form-check-input(type='radio', name='exampleRadios', value='option1', checked='')
+              input#exampleRadios1.form-check-input(type='radio', name='radio1', value='option1', checked='')
               .input-group
                 .input-group-prepend
                   .input-group-text a
                 label.form-check-label(for='exampleRadios1')
-                input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default')
+                input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='option1')
           .col-auto
             .form-check.mb-2.mr-2
-              input#exampleRadios2.form-check-input(type='radio', name='exampleRadios', value='option2')
+              input#exampleRadios2.form-check-input(type='radio', name='radio2', value='option2')
               .input-group
                 .input-group-prepend
                   .input-group-text b
                 label.form-check-label(for='exampleRadios2')
-                input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default')
-          .col-auto 
+                input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='option2')
+          .col-auto
             .form-check.mb-2.mr-2
-              input#exampleRadios3.form-check-input(type='radio', name='exampleRadios', value='option3')
+              input#exampleRadios3.form-check-input(type='radio', name='radio3', value='option3')
               .input-group
                 .input-group-prepend
                   .input-group-text c
                 label.form-check-label(for='exampleRadios3')
-                input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default')
+                input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='option3')
           .col-auto
-            button.btn.btn-warning.mb-2(type='button') Agregar otra
-    button.btn.btn-danger.mt-4(type='button') Guardar
+            button.btn.btn-warning.mb-2.add-questions-button(type='button') +
+      button.btn.btn-danger.mt-4(type='submit') Guardar
 
 
