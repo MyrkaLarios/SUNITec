@@ -1,9 +1,74 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  .loquesea
-    h2 hola uwu 
-    
-      
+
+  header
+    nav.navbar.navbar-expand-lg.navbar-light <!-- EL bg-light ERA EL COLOR, PARA CAMBIARLO OCUPE QUITARLE ESO -->
+      a.navbar-brand(href='#') SUNITEC
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='#')
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='#')
+          li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              | Preguntas
+            .dropdown-menu(aria-labelledby='navbarDropdown')
+              a.dropdown-item(href='#') Agregar pregunta
+              a.dropdown-item(href='#') Editar preguntas
+          li.nav-item
+
+  .full-container
+    form(method='post', action='/insert/question')
+      .form-group
+        .preguntas
+          h2.mb-4 Agregar una pregunta
+          .input-group-prepend
+            span#inputGroup-sizing-default.input-group-text Descripcion:
+          input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='descripcion')
+          .input-group-prepend
+            span#inputGroup-sizing-default.input-group-text Valor:
+          input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='valor')
+          .input-group-prepend
+            span#inputGroup-sizing-default.input-group-text Unidad:
+          input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='id_unidad')
+          .input-group-prepend
+            span#inputGroup-sizing-default.input-group-text IdCoordi:
+          input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='id_coordi')
+
+      .form-group
+        h3.mb-3 Respuestas:
+        .form-row
+          .col-auto
+            .form-check.mb-2.mr-2
+              input#exampleRadios1.form-check-input(type='radio', name='radio1', value='option1', checked='')
+              .input-group
+                .input-group-prepend
+                  .input-group-text a
+                label.form-check-label(for='exampleRadios1')
+                input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='option1')
+          .col-auto
+            .form-check.mb-2.mr-2
+              input#exampleRadios2.form-check-input(type='radio', name='radio2', value='option2')
+              .input-group
+                .input-group-prepend
+                  .input-group-text b
+                label.form-check-label(for='exampleRadios2')
+                input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='option2')
+          .col-auto
+            .form-check.mb-2.mr-2
+              input#exampleRadios3.form-check-input(type='radio', name='radio3', value='option3')
+              .input-group
+                .input-group-prepend
+                  .input-group-text c
+                label.form-check-label(for='exampleRadios3')
+                input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='option3')
+          .col-auto
+            button.btn.btn-warning.mb-2.add-questions-button(type='button') +
+      button.btn.btn-danger.mt-4(type='submit') Guardar
+
+
