@@ -1,0 +1,31 @@
+doctype html
+html
+  head
+    title= title
+    script(src='/js/jquery.min.js')
+    script(src='/js/bootstrap.min.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  body
+    block header
+      header
+        nav.navbar.navbar-expand-lg.navbar-light
+          a.navbar-brand(href="/coordinator")
+            img.d-inline-block.align-top.mr-3(src="/images/logo.png" width="30" height="30" alt="logo Tec")
+            | SUNITEC
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+          #navbarSupportedContent.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+              li.nav-item
+                a.nav-link(href='/coordinator/questions') Preguntas
+              li.nav-item
+                a.nav-link(href='#') Grupos
+              li.nav-item
+                a.nav-link(href='#') Maestros
+              li.nav-item
+                a.nav-link(href='#') Examen
+
+
+
+    block content

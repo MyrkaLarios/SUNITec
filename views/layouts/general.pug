@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title= title
+    script(src='/js/jquery.min.js')
+    script(src='/js/bootstrap.min.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  body
+    block header
+      header
+        nav.navbar.navbar-expand-lg.navbar-light
+          a.navbar-brand(href="#")
+            img.d-inline-block.align-top.mr-3r(src="images/logo.png" width="30" height="30" alt="logo Tec")
+            | SUNITEC
+
+    block content

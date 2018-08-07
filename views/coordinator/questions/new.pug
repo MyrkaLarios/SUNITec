@@ -1,27 +1,6 @@
-extends layout
+extends ../../layouts/coordinator
 
 block content
-
-  header
-    nav.navbar.navbar-expand-lg.navbar-light <!-- EL bg-light ERA EL COLOR, PARA CAMBIARLO OCUPE QUITARLE ESO -->
-      a.navbar-brand(href='#') SUNITEC
-      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-      #navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav.mr-auto
-          li.nav-item.active
-            a.nav-link(href='#')
-              span.sr-only (current)
-          li.nav-item
-            a.nav-link(href='#')
-          li.nav-item.dropdown
-            a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-              | Preguntas
-            .dropdown-menu(aria-labelledby='navbarDropdown')
-              a.dropdown-item(href='#') Agregar pregunta
-              a.dropdown-item(href='#') Editar preguntas
-          li.nav-item
-
   .full-container
     form(method='post', action='/insert/question')
       .form-group
