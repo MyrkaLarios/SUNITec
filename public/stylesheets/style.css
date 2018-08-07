@@ -6338,4 +6338,11 @@ header.button {
   height: 50px;
   width: 50px; }
 
+.login-container {
+  margin: 15% 35%; }
+
+.login-btn {
+  display: block;
+  margin: 0 auto; }
+
 /*# sourceMappingURL=style.css.map */
