@@ -8,7 +8,18 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/questions', (req, res, next) => {
-  res.render('coordinator/questions/index')
+  knex.select().from('UNIDAD').orderBy('id_nivel', 'desc').then( data => {
+    let levels_data = {}
+    data.forEach(item => {
+      if (levels_data[`${item.id_nivel}`]){
+        levels_data[`${item.id_nivel}`] = [...levels_data[`${item.id_nivel}`], `${item.num_unidad}. ${item.nombre_unidad}`]
+      }else{
+        levels_data[`${item.id_nivel}`] = [`${item.num_unidad}. ${item.nombre_unidad}`]
+      }
+    });
+    res.render('questions/index', {levels_data})
+  })
+
 });
 
 router.get('/questions/new', (req, res, next) => {
