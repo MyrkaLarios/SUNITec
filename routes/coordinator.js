@@ -9,21 +9,21 @@ router.get('/', function(req, res, next) {
 
 router.get('/questions', (req, res, next) => {
   knex.select().from('UNIDAD').orderBy('id_nivel', 'desc').then( data => {
-    let levels_data = {}
+    let levelsData = {}
     data.forEach(item => {
-      if (levels_data[`${item.id_nivel}`]){
-        levels_data[`${item.id_nivel}`] = [...levels_data[`${item.id_nivel}`], `${item.num_unidad}. ${item.nombre_unidad}`]
+      if (levelsData[`${item.id_nivel}`]){
+        levelsData[`${item.id_nivel}`] = [...levelsData[`${item.id_nivel}`], `${item.num_unidad}. ${item.nombre_unidad}`]
       }else{
-        levels_data[`${item.id_nivel}`] = [`${item.num_unidad}. ${item.nombre_unidad}`]
+        levelsData[`${item.id_nivel}`] = [`${item.num_unidad}. ${item.nombre_unidad}`]
       }
     });
-    res.render('questions/index', {levels_data})
+    res.render('questions/index', {levelsData})
   })
 
 });
 
 router.get('/questions/new', (req, res, next) => {
-  res.render('coordinator/questions/new')
+  res.render('questions/new')
 });
 
 router.post('/questions', (req, res, next) => {
