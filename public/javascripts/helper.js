@@ -4,7 +4,7 @@ document.querySelector('#level-selector').addEventListener('change', (ev) => {
   })
   document.querySelector(`#level${ev.target.value}-units-selector`).classList.remove('d-none');
   document.querySelector(`#level${ev.target.value}-units-selector`).addEventListener('change', (ev) => {
-    console.log(ev.target.value)
+    document.querySelector('#id-unidad').value = ev.target.value
   })
 });
 

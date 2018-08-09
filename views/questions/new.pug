@@ -2,7 +2,8 @@ extends ../layouts/coordinator
 
 block content
   .full-container
-    form(method='post', action='/question/create')
+    form(method='post', action='/questions/create')
+      input#id-unidad.d-none(name='id_unidad')
       .question-filters
         select.level-selector(id="level-selector")
           option(value='' disabled selected) Nivel
@@ -19,6 +20,7 @@ block content
 
         each levelUnits, level in levelsData
           select.unitSelector.d-none(id=`level${level}-units-selector`)
+            option(value='' disabled selected) Unidad
             each unit  in levelUnits
               option(value=`${unit[0]}`) #{unit[1]}
 
