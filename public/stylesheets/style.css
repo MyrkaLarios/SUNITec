@@ -6312,8 +6312,9 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+body, html {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%; }
 
 a {
   color: #00B7FF; }
@@ -6345,10 +6346,45 @@ header.button {
   display: block;
   margin: 0 auto; }
 
+.filter {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  margin: 40px 0;
+  padding: 0 30px; }
+
+.level-selector {
+  margin: 0 15px; }
+
+.level-selector, .unitSelector {
+  height: 30px; }
+
+.search-btn {
+  margin: 0 20px; }
+
 .scroll {
-  border: 5px solid red;
+  border: 1px solid #D3D0CB;
+  border-radius: 10px;
   height: 200px;
+  margin: 0 30px;
   overflow-y: scroll;
+  padding: 20px;
   position: relative; }
+
+.add-question-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  padding: 0 30px; }
+
+.form-control.coordi-input {
+  display: inline-block;
+  width: auto; }
+
+.question-filters {
+  margin: 25px 0; }
+
+.question-body {
+  margin: 25px 0; }
 
 /*# sourceMappingURL=style.css.map */

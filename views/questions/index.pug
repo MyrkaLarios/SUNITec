@@ -1,22 +1,27 @@
 extends ../layouts/coordinator
 
 block content
-  h1 aquí van a ir todas las preguntas
-  select(id="level-selector")
-    option(value='1') 1
-    option(value='2') 2
-    option(value='3') 3
-    option(value='4') 4
-    option(value='5') 5
-    option(value='6') 6
-    option(value='7') 7
+  .filter
+    .text Filtrar:
+    select.level-selector(id="level-selector")
+      option(value='' disabled selected) Nivel
+      option(value='1') 1
+      option(value='2') 2
+      option(value='3') 3
+      option(value='4') 4
+      option(value='5') 5
+      option(value='6') 6
+      option(value='7') 7
 
-  each levelUnits, level in levelsData
-    select(id=`level${level}-units-selector` class="unitSelector d-none")
-      each unit, unitNumber  in levelUnits
-        option(value=`${unitNumber+1}`) #{unit}
+    select.unitSelector
+      option(value='' disabled selected) Unidad
 
-  a.btn.btn-primary Buscar
+    each levelUnits, level in levelsData
+      select.unitSelector.d-none(id=`level${level}-units-selector`)
+        each unit  in levelUnits
+          option(value=`${unit[0]}`) #{unit[1]}
+
+    a.btn.btn-primary.search-btn Buscar
 
   div.scroll.scrollspy-example(data-spy='scroll')
     h4#fat Nivel 1
@@ -32,5 +37,6 @@ block content
     h4#three Nivel 5
     p ...
 
-  a.btn.btn-primary(href="/coordinator/questions/new") Agregar pregunta
+  .add-question-btn-container
+    a.btn.btn-primary.add-question-btn(href="/coordinator/questions/new") Agregar pregunta
 

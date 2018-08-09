@@ -2,24 +2,39 @@ extends ../layouts/coordinator
 
 block content
   .full-container
-    form(method='post', action='/insert/question')
-      .form-group
-        .preguntas
-          h2.mb-4 Agregar una pregunta
-          .input-group-prepend
-            span#inputGroup-sizing-default.input-group-text Descripcion:
-          input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='descripcion')
-          .input-group-prepend
-            span#inputGroup-sizing-default.input-group-text Valor:
-          input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='valor')
-          .input-group-prepend
-            span#inputGroup-sizing-default.input-group-text Unidad:
-          input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='id_unidad')
-          .input-group-prepend
-            span#inputGroup-sizing-default.input-group-text IdCoordi:
-          input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='id_coordi')
+    form(method='post', action='/question/create')
+      .question-filters
+        select.level-selector(id="level-selector")
+          option(value='' disabled selected) Nivel
+          option(value='1') 1
+          option(value='2') 2
+          option(value='3') 3
+          option(value='4') 4
+          option(value='5') 5
+          option(value='6') 6
+          option(value='7') 7
 
-      .form-group
+        select.unitSelector
+          option(value='' disabled selected) Unidad
+
+        each levelUnits, level in levelsData
+          select.unitSelector.d-none(id=`level${level}-units-selector`)
+            each unit  in levelUnits
+              option(value=`${unit[0]}`) #{unit[1]}
+
+        span.ml-3 IdCoordi:
+        input.form-control.coordi-input(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='id_coordi')
+
+      .question-body
+        .input-group-prepend
+          span#inputGroup-sizing-default.input-group-text Descripcion:
+        input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='descripcion')
+        .input-group-prepend
+          span#inputGroup-sizing-default.input-group-text Valor:
+        input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='valor')
+
+
+      .answers
         h3.mb-3 Respuestas:
         .form-row
           .col-auto
