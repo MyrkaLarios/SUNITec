@@ -24,18 +24,9 @@ block content
     a.btn.btn-primary.search-btn Buscar
 
   div.scroll.scrollspy-example(data-spy='scroll')
-    h4#fat Nivel 1
-    p sjfsjfg
-    p dfhsejhdfksjd
-    p isdgfhsgd
-    h4#mdo Nivel 2
-    p sdnfkjsdbfkjsdbf
-    h4#one Nivel 3
-    p ...
-    h4#two Nivel 4
-    p ...
-    h4#three Nivel 5
-    p ...
+    each question in questions
+      h4 Nivel #{question.id_nivel} - Unidad #{question.num_unidad}: #{question.nombre_unidad}
+      p #{question.descripcion}
 
   .add-question-btn-container
     a.btn.btn-primary.add-question-btn(href="/coordinator/questions/new") Agregar pregunta

@@ -41,28 +41,28 @@ block content
         .form-row
           .col-auto
             .form-check.mb-2.mr-2
-              input#exampleRadios1.form-check-input(type='radio', name='radio1', value='option1', checked='')
+              input#option1.form-check-input(type='radio', name='radioOptions', checked='', value=0)
               .input-group
                 .input-group-prepend
                   .input-group-text a
-                label.form-check-label(for='exampleRadios1')
-                input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='option1')
+                label.form-check-label(for='option1')
+                input.form-control(type='text', name='options')
           .col-auto
             .form-check.mb-2.mr-2
-              input#exampleRadios2.form-check-input(type='radio', name='radio2', value='option2')
+              input#option2.form-check-input(type='radio', name='radioOptions',  value=1)
               .input-group
                 .input-group-prepend
                   .input-group-text b
-                label.form-check-label(for='exampleRadios2')
-                input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='option2')
+                label.form-check-label(for='option2')
+                input.form-control(type='text', name='options')
           .col-auto
             .form-check.mb-2.mr-2
-              input#exampleRadios3.form-check-input(type='radio', name='radio3', value='option3')
+              input#option3.form-check-input(type='radio', name='radioOptions', value=2)
               .input-group
                 .input-group-prepend
                   .input-group-text c
-                label.form-check-label(for='exampleRadios3')
-                input.form-control(type='text', aria-label='Sizing example input', aria-describedby='inputGroup-sizing-default', name='option3')
+                label.form-check-label(for='option3')
+                input.form-control(type='text', name='options')
           .col-auto
             button.btn.btn-warning.mb-2.add-questions-button(type='button', id='add-option') +
       button.btn.btn-danger.mt-4(type='submit') Guardar
