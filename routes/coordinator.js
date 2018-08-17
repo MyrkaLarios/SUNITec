@@ -17,9 +17,18 @@ router.get('/questions', (req, res, next) => {
         levelsData[item.id_nivel] = [[item.id_unidad, `${item.num_unidad}. ${item.nombre_unidad}`]]
       }
     });
-    res.render('questions/index', {levelsData})
-  })
 
+    knex('PREGUNTA')
+      .join('UNIDAD', 'PREGUNTA.id_unidad', '=', 'UNIDAD.id_unidad')
+      .select('UNIDAD.id_nivel',
+              'UNIDAD.num_unidad',
+              'UNIDAD.nombre_unidad',
+              'PREGUNTA.descripcion')
+    .then(questions => {
+      console.log(questions)
+      res.render('questions/index', {levelsData, questions})
+    })
+  })
 });
 
 router.get('/questions/new', (req, res, next) => {
@@ -35,5 +44,9 @@ router.get('/questions/new', (req, res, next) => {
     res.render('questions/new', {levelsData})
   })
 });
+
+// router.get('/questions', (req, res, next) => {
+
+// })
 
 module.exports = router;

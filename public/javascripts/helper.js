@@ -7,5 +7,3 @@ document.querySelector('#level-selector').addEventListener('change', (ev) => {
     document.querySelector('#id-unidad').value = ev.target.value
   })
 });
-
-
