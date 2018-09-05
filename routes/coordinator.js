@@ -31,6 +31,20 @@ router.get('/questions', (req, res, next) => {
   })
 });
 
+router.get('/questions/filter', (req, res, next) => {
+  knex.select().from('UNIDAD').then( data => {
+    let levelsData = {}
+    data.forEach(item => {
+      if (levelsData[item.id_nivel]){
+        levelsData[item.id_nivel] = [...levelsData[`${item.id_nivel}`], [item.id_unidad, `${item.num_unidad}. ${item.nombre_unidad}`]]
+      }else{
+        levelsData[item.id_nivel] = [[item.id_unidad, `${item.num_unidad}. ${item.nombre_unidad}`]]
+      }
+    });
+  })
+});
+
+
 router.get('/questions/new', (req, res, next) => {
   knex.select().from('UNIDAD').orderBy('id_nivel', 'desc').then( data => {
     let levelsData = {}
@@ -44,6 +58,8 @@ router.get('/questions/new', (req, res, next) => {
     res.render('questions/new', {levelsData})
   })
 });
+
+
 
 // router.get('/questions', (req, res, next) => {
 

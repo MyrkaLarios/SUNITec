@@ -3,7 +3,7 @@ extends ../layouts/coordinator
 block content
   .filter
     .text Filtrar:
-    select.level-selector(id="level-selector")
+    select.level-selector(id="level-selector", name="levelSelector")
       option(value='' disabled selected) Nivel
       option(value='1') 1
       option(value='2') 2
@@ -17,11 +17,11 @@ block content
       option(value='' disabled selected) Unidad
 
     each levelUnits, level in levelsData
-      select.unitSelector.d-none(id=`level${level}-units-selector`)
+      select.unitSelector.d-none(id=`level${level}-units-selector`, name='unitSelector')
         each unit  in levelUnits
           option(value=`${unit[0]}`) #{unit[1]}
-
-    a.btn.btn-primary.search-btn Buscar
+          
+    a.btn.btn-primary.search-btn(href="/coordinator/questions/level") Buscar
 
   div.scroll.scrollspy-example(data-spy='scroll')
     each question in questions
